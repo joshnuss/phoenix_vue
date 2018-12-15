@@ -2,7 +2,7 @@ defmodule Phoenix.VueWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", Phoenix.VueWeb.RoomChannel
+  channel "room:lobby", Phoenix.VueWeb.RoomChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
