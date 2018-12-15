@@ -3,7 +3,7 @@ defmodule Phoenix.VueWeb.RoomChannel do
 
   def join("room:lobby", payload, socket) do
     if authorized?(payload) do
-      send(self, :welcome)
+      Process.send_after(self, :welcome, 2_000)
 
       {:ok, socket}
     else
