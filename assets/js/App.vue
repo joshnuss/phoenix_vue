@@ -1,5 +1,14 @@
 <template>
-  <Title>Hello from {{name}}!</Title>
+  <div>
+    <Title>Hello from {{name}}!</Title>
+
+    <h2>Socket log</h2>
+    <ul>
+      <li
+        v-for='log in logs'
+        :key="log.$index">{{log}}</li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -10,9 +19,12 @@ export default {
   components: {
     Title
   },
-  data() {
-    return {
-      name: "Vue"
+  computed: {
+    name() {
+      return this.$store.state.name;
+    },
+    logs() {
+      return this.$store.state.logs;
     }
   }
 };
