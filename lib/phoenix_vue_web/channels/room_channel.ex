@@ -20,7 +20,7 @@ defmodule Phoenix.VueWeb.RoomChannel do
   # It is also common to receive messages from the client and
   # broadcast to everyone in the current topic (room:lobby).
   def handle_in("shout", payload, socket) do
-    broadcast socket, "shout", payload
+    broadcast(socket, "shout", payload)
 
     {:noreply, socket}
   end
@@ -28,7 +28,7 @@ defmodule Phoenix.VueWeb.RoomChannel do
   def handle_info(:welcome, socket) do
     pid = Map.get(socket, :channel_pid)
 
-    push socket, "welcome", %{pid: Kernel.inspect(pid)}
+    push(socket, "welcome", %{pid: Kernel.inspect(pid)})
 
     {:noreply, socket}
   end
