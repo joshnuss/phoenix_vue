@@ -7,6 +7,7 @@
 // Pass the token on params as below. Or remove it
 // from the params if you are not using authentication.
 import {Socket} from "phoenix"
+import store from "./store"
 
 let socket = new Socket("/socket", {params: {token: window.userToken}})
 
@@ -54,10 +55,14 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 // Finally, connect to the socket:
 socket.connect()
 
+const logs = store.state.logs;
+
 // Now that you are connected, you can join channels with a topic:
-let channel = socket.channel("topic:subtopic", {})
+let channel = socket.channel("room:lobby", {})
 channel.join()
-  .receive("ok", resp => { console.log("Joined successfully", resp) })
-  .receive("error", resp => { console.log("Unable to join", resp) })
+  .receive("ok", response => { logs.push({message: "Joined successfully", response}) })
+  .receive("error", response => { logs.push({message: "Unable to join", response}) })
+
+channel.on("welcome", response => { logs.push({message: "Welcome!", response}) })
 
 export default socket
