@@ -36,6 +36,14 @@ module.exports = (env, options) => ({
       {
         test: /\.vue$/,
         use: 'vue-loader'
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader'
       }
     ]
   },
