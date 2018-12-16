@@ -5,10 +5,11 @@ import { Home, Contact } from './pages'
 Vue.use(VueRouter)
 
 const routes = [
-  { path: "/", component: Home },
-  { path: "/contact", component: Contact }
+  { path: '/', component: Home },
+  { path: '/contact', component: Contact }
 ]
 
 export default new VueRouter({
+  mode: 'history',
   routes
 })

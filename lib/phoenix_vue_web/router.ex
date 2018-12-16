@@ -1,6 +1,11 @@
 defmodule Phoenix.VueWeb.Router do
   use Phoenix.VueWeb, :router
 
+  @vue_routes ~w[
+    /
+    /contact
+  ]
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -16,7 +21,9 @@ defmodule Phoenix.VueWeb.Router do
   scope "/", Phoenix.VueWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    for path <- @vue_routes do
+      get path, PageController, :index
+    end
   end
 
   # Other scopes may use custom stacks.
