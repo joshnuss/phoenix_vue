@@ -1,12 +1,6 @@
 <template>
   <div>
-    <Title>Hello from {{name}}!</Title>
-
-    <p>
-      <router-link to="/contact">Contact</router-link>
-    </p>
-
-    <h2>Socket log</h2>
+    <Title>Socket log</Title>
     <ul>
       <li
         v-for='log in logs'
