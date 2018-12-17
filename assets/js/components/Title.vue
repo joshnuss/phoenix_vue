@@ -1,7 +1,7 @@
 <template>
-  <h1>
+  <h3 class="display-2">
     <slot/>
-  </h1>
+  </h3>
 </template>
 
 <script>

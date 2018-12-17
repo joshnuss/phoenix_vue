@@ -33,11 +33,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-  h1 {
-    background: pink;
-    text-align: center;
-    padding: 2em;
-  }
-</style>
