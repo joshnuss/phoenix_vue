@@ -4,7 +4,7 @@
       <v-list>
         <v-list-tile to="/" @click="toggleDrawer">
           <v-list-tile-action>
-            <v-icon>home</v-icon>
+            <v-icon>fa-home</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title >Home</v-list-tile-title>
@@ -12,7 +12,7 @@
         </v-list-tile>
         <v-list-tile to="/contact" @click="toggleDrawer">
           <v-list-tile-action>
-            <v-icon>email</v-icon>
+            <v-icon>fa-envelope</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title >Contact</v-list-tile-title>
@@ -21,7 +21,9 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar app color="white">
-      <v-toolbar-side-icon @click.stop="toggleDrawer()"></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click.stop="toggleDrawer()">
+        <v-icon>fa-bars</v-icon>
+      </v-toolbar-side-icon>
       <v-toolbar-title>
         <router-link to="/">
           <img class="logo" src="/images/phoenix.png"/>
@@ -30,7 +32,7 @@
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn icon to="/contact">
-          <v-icon>email</v-icon>
+          <v-icon>fa-envelope</v-icon>
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
