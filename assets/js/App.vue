@@ -23,7 +23,9 @@
     <v-toolbar app>
       <v-toolbar-side-icon @click.stop="toggleDrawer()"></v-toolbar-side-icon>
       <v-toolbar-title>
-        Phoenix.Vue
+        <router-link to="/">
+          <img class="logo" src="/images/phoenix.png"/>
+        </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
@@ -55,4 +57,12 @@ export default {
     }
   }
 }
+
 </script>
+
+<style scoped>
+img.logo {
+  height: 1.4em;
+  margin-top: 0.5em;
+}
+</style>
