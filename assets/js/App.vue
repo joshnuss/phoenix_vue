@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-navigation-drawer app v-model="drawer" dark>
+    <v-navigation-drawer app v-model="drawer">
       <v-list>
         <v-list-tile to="/" @click="toggleDrawer">
           <v-list-tile-action>
@@ -20,7 +20,7 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar app>
+    <v-toolbar app color="white">
       <v-toolbar-side-icon @click.stop="toggleDrawer()"></v-toolbar-side-icon>
       <v-toolbar-title>
         <router-link to="/">
