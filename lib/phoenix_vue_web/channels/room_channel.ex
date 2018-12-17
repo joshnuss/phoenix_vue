@@ -26,9 +26,7 @@ defmodule Phoenix.VueWeb.RoomChannel do
   end
 
   def handle_info(:welcome, socket) do
-    pid = Map.get(socket, :channel_pid)
-
-    push(socket, "welcome", %{pid: Kernel.inspect(pid)})
+    push(socket, "welcome", %{})
 
     {:noreply, socket}
   end
