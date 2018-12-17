@@ -41,7 +41,29 @@
         <router-view></router-view>
       </v-container>
     </v-content>
-    <v-footer app></v-footer>
+    <v-footer dark inset fixed height="auto">
+      <v-card class="flex" flat tile>
+        <v-card-title class="teal">
+          <strong class="subheading">This is super cool!</strong>
+
+          <v-spacer></v-spacer>
+
+          <v-tooltip
+            v-for="icon in icons"
+            :key="icon"
+            bottom>
+            <v-btn class="mx-1" dark icon slot="activator">
+              <v-icon size="24px">{{ icon.name }}</v-icon>
+            </v-btn>
+            <span>{{icon.tooltip}}</span>
+          </v-tooltip>
+        </v-card-title>
+
+        <v-card-actions class="grey darken-3 justify-center">
+          &copy;{{year}} —&nbsp;<strong>My App</strong>
+        </v-card-actions>
+      </v-card>
+    </v-footer>
   </v-app>
 </template>
 
@@ -51,6 +73,33 @@ export default {
   data() {
     return {
       drawer: false,
+      icons: [
+        {
+          name: "fa-envelope",
+          tooltip: "Contact us"
+        },
+        {
+          name: "fa-twitter",
+          tooltip: "Twitter"
+        },
+        {
+          name: "fa-facebook",
+          tooltip: "Facebook"
+        },
+        {
+          name: "fa-github",
+          tooltip: "GitHub"
+        },
+        {
+          name: "fa-medium",
+          tooltip: "Medium"
+        }
+      ]
+    }
+  },
+  computed: {
+    year() {
+      return (new Date()).getYear() + 1900
     }
   },
   methods: {
